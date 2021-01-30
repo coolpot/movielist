@@ -12,10 +12,15 @@ import { Movie } from '../interfaces/movie.interface';
 export class TmdbService {
 
   apiUrl: string = `${environment.api}/movie/top_rated?api_key=${environment.apiKey}`;
+  detailUrl: string = `${environment.api}/movie/top_rated?api_key=${environment.apiKey}`;
 
   constructor(private http: HttpClient) {}
 
   getMovies(): Observable<any> {
     return this.http.get(this.apiUrl);
+  }
+
+  getMovieDetail(id: string): Observable<any> {
+    return this.http.get(this.detailUrl);
   }
 }

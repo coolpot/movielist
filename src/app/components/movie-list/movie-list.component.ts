@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TmdbService } from './../../services/tmdb.service';
 import { Movie } from './../../interfaces/movie.interface';
+import * as _ from 'underscore';
+
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -22,5 +24,10 @@ export class MovieListComponent implements OnInit {
     });
   }
 
+
+  test() {
+    this.movieList = _.sortBy({...this.movieList}, 'title');
+    console.log(this.movieList);
+  }
 
 }

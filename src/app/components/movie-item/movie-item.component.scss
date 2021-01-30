@@ -18,3 +18,9 @@ mat-card-title {
 mat-card {
   margin-bottom: 25px;
 }
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
