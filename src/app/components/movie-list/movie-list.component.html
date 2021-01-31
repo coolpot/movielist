@@ -3,8 +3,8 @@
         <mat-form-field>
             <mat-label>Sort By</mat-label>
             <mat-select>
-                <mat-option value="avgVote">Average Vote</mat-option>
-                <mat-option value="title">Title</mat-option>
+                <mat-option value="avgVote" (click)="sort('vote_average')">Average Vote</mat-option>
+                <mat-option value="title" (click)="sort('title')">Title</mat-option>
             </mat-select>
         </mat-form-field>
     </div>

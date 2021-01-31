@@ -30,4 +30,8 @@ export class MovieListComponent implements OnInit {
     console.log(this.movieList);
   }
 
+  sort(sortBy: string) {
+    this.movieList = _.sortBy({...this.movieList}, sortBy);
+  }
+
 }
