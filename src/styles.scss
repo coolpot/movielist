@@ -15,3 +15,21 @@ body {
 .bg-primary {
     background-color: black !important;
 }
+
+
+
+  
+  mat-card-title {
+    min-height: 60px;
+  }
+  
+  mat-card {
+    margin-bottom: 25px;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
