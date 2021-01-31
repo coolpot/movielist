@@ -19,19 +19,19 @@ export class MovieListComponent implements OnInit {
 
   getMovies() {
     this.tmdbService.getMovies().subscribe(movies => {
-      console.log(movies);
       this.movieList = movies.results;
     });
   }
 
-
-  test() {
-    this.movieList = _.sortBy({...this.movieList}, 'title');
-    console.log(this.movieList);
-  }
-
   sort(sortBy: string) {
-    this.movieList = _.sortBy({...this.movieList}, sortBy);
+    if (sortBy === 'vote_average') {
+      this.movieList = _.sortBy({...this.movieList}, sortBy);
+      this.movieList.reverse();
+    } else {
+      this.movieList = _.sortBy({...this.movieList}, sortBy);
+    }
+    
+    
   }
 
 }

@@ -20,7 +20,6 @@ export class MovieItemComponent implements OnInit {
 
   getMovies() {
     this.tmdbService.getMovies().subscribe(movies => {
-      console.log(movies);
       this.movieList = movies.results;
     });
   }
