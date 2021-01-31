@@ -25,13 +25,11 @@ export class MovieListComponent implements OnInit {
 
   sort(sortBy: string) {
     if (sortBy === 'vote_average') {
+      // pff! 
       this.movieList = _.sortBy({...this.movieList}, sortBy);
       this.movieList.reverse();
     } else {
       this.movieList = _.sortBy({...this.movieList}, sortBy);
     }
-    
-    
   }
-
 }
