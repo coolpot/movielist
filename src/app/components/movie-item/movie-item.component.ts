@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/app/interfaces/movie.interface';
+import { TmdbService } from 'src/app/services/tmdb.service';
 
 @Component({
   selector: 'app-movie-item',
@@ -9,9 +10,20 @@ import { Movie } from 'src/app/interfaces/movie.interface';
 export class MovieItemComponent implements OnInit {
   @Input() movie: Movie;
 
-  constructor() { }
+  movieList: Movie[] = [];
+
+  constructor(private tmdbService: TmdbService) { }
 
   ngOnInit(): void {
+    this.getMovies()
   }
+
+  getMovies() {
+    this.tmdbService.getMovies().subscribe(movies => {
+      console.log(movies);
+      this.movieList = movies.results;
+    });
+  }
+
 
 }
