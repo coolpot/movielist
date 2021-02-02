@@ -12,6 +12,13 @@ import { MovieItemComponent } from './components/movie-item/movie-item.component
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
+import { movieReducer } from './movie.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { MovieEffects } from './movie.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 const materialModules = [
   MatCardModule,
@@ -30,10 +37,17 @@ const materialModules = [
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({ page: movieReducer }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ...materialModules
+    StoreModule,
+    EffectsModule.forRoot([MovieEffects]),
+    // StoreDevtoolsModule.instrumentStore({
+    //   maxAge: 25,
+    // }),
+    ...materialModules,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   exports: [
     ...materialModules
