@@ -23,7 +23,7 @@ export class MovieListComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.store.dispatch({ type: '[Movies Page] Get Movies' });
+    this.store.dispatch({ type: '[Movie Component] Get Movies' });
   }
 
   getNextPage() {

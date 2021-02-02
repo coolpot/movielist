@@ -8,10 +8,10 @@ import { TmdbService } from './services/tmdb.service';
 export class MovieEffects {
  
   loadMovies$ = createEffect(() => this.actions$.pipe(
-    ofType('[Movies Page] Get Movies'),
+    ofType('[Movie Component] Get Movies'),
     mergeMap(() => this.tmdbService.getMovies()
       .pipe(
-        map(movies => ({ type: '[Movies Page] Movies Loaded Success', payload: movies })),
+        map(movies => ({ type: '[Movie Component] Movies Loaded Success', payload: movies })),
         catchError(() => EMPTY)
       ))
     )

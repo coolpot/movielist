@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { getNext, getPrevious } from './movie.actions';
+import { getMovies, getNext, getPrevious } from './movie.actions';
 
 export const initialState = 1;
 
