@@ -20,6 +20,7 @@ export class MovieListComponent implements OnInit {
      private store: Store<{ page: number, movies: Movie[] }>)
     {
       this.moviePage$ = store.select('page');
+      this.movies$ = store.select('movies');
     }
 
   ngOnInit(): void {

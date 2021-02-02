@@ -12,6 +12,7 @@ export class MovieEffects {
     mergeMap(() => this.tmdbService.getMovies()
       .pipe(
         map(movies => ({ type: '[Movie Component] Movies Loaded Success', payload: movies })),
+        
         catchError(() => EMPTY)
       ))
     )
